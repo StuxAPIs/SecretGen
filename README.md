@@ -4,7 +4,7 @@
 
 # Secret Generator
 
-A simple web app which will generate secrets.
+A simple API which will generate secrets. Powered by StuxAPIs.
 
 ## Usage
 

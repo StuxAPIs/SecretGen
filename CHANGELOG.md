@@ -3,6 +3,11 @@
 All notable changes to SecretGen are documented here. Versions follow
 [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH).
 
+## v1.0.1
+
+### Changed
+- `README.md`'s tagline now matches the repo's live GitHub description ("A simple API which will generate secrets. Powered by StuxAPIs.") instead of the older "simple web app" wording
+
 ## v1.0.0
 
 ### Added
