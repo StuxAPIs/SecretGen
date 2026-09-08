@@ -5,6 +5,14 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.1.0
+
+### Added
+- `assets/logo.svg` — a full logo (padlock icon + "SecretGen" wordmark), replacing the generic Stux.Group fallback logo in `README.md`'s header now that the project has branding of its own
+
+### Changed
+- `README.md`'s tagline "Powered by StuxAPIs" replaced with "Built & Maintained by StuxAPIs, Hosted by Stuxedo" (both linked, to `github.com/StuxAPIs` and `stuxedo.com`), matching the branding used everywhere else in the org
+
 ## v1.0.5
 
 ### Changed

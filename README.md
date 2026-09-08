@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="https://media.stux.group/global/logo.png" width="300" alt="Stux.Group">
+  <img src="assets/logo.svg" width="300" alt="SecretGen">
 </p>
 
-# Secret Generator
+# SecretGen
 
-A simple API which will generate secrets. Powered by StuxAPIs.
+A simple API which will generate secrets. Built & Maintained by [StuxAPIs](https://github.com/StuxAPIs), Hosted by [Stuxedo](https://stuxedo.com).
 
 ## Usage
 
