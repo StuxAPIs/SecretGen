@@ -5,6 +5,11 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.1.1
+
+### Fixed
+- `package.json`'s `engines.node` bumped from `18.x` to `24.x` — Node 18 is discontinued and Vercel now rejects deploys pinned to it ("Found invalid or discontinued Node.js Version")
+
 ## v1.1.0
 
 ### Added
