@@ -38,7 +38,7 @@ MIT — see [LICENSE](LICENSE).
 
 ## Copyright
 
-(C) 2024 Stux.Group. All rights reserved.
+(C) 2024-2026 Stux.Group. All rights reserved.
 
 ---
 
