@@ -5,6 +5,11 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.1.2
+
+### Fixed
+- `assets/logo.svg`'s viewBox was 480 wide with the wordmark at font-size 50 against a 96px-tall icon badge — much too small relative to the icon and with a lot of dead space to its right. Measured the actual rendered text dimensions (rather than guessing) and bumped to font-size 80 for a properly balanced icon/wordmark lockup, then tightened the viewBox from 480 to 530 to crop out the leftover empty space
+
 ## v1.1.1
 
 ### Fixed
