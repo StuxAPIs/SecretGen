@@ -3,7 +3,14 @@
     { "source": "/favicon.ico", "destination": "https://global.media.stuxapis.net/secretgen/icon.png", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/", "destination": "/0" },
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/legal", "destination": "/legal.html" },
+    { "source": "/legal/privacy", "destination": "/legal-privacy.html" },
+    { "source": "/legal/terms", "destination": "/legal-terms.html" },
+    { "source": "/legal/cookies", "destination": "/legal-cookies.html" },
+    { "source": "/legal/imprint", "destination": "/legal-imprint.html" },
+    { "source": "/legal/disclaimer", "destination": "/legal-disclaimer.html" },
+    { "source": "/legal/opt-out", "destination": "/legal-opt-out.html" },
     { "source": "/(.*)", "destination": "/api/$1" }
   ]
 }

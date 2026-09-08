@@ -5,6 +5,18 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.3.0
+
+### Added
+- A real landing page at `/` (`index.html`) — title, favicon, logo, tagline, and links to the usage examples. Previously `/` immediately generated and returned a raw secret (rewritten straight to `/api/0`, which itself 301-redirected to `/32`); the actual secret-generation endpoints (`/32`, `/64`, `/128`, etc.) are completely unaffected and still take priority in `vercel.json`'s routing
+- A full legal hub at `/legal` (`legal.html`) with all six standard sub-pages (`legal-privacy.html`, `legal-terms.html`, `legal-cookies.html`, `legal-imprint.html`, `legal-disclaimer.html`, `legal-opt-out.html`), matching the convention used across every other StuxAPIs project with a website
+- `assets/style.css` — a small self-contained stylesheet (dark theme, no external framework), adapted from Kittens'
+- `dev-server.sh`/`dev-server.bat` — local dev launcher that installs Node dependencies if missing, then runs `vercel dev`. This project has no config.json/domain to force into a dev mode the way other projects do, since `vercel.json`'s routing is identical locally and in production
+- Legal sub-page titles follow the `(Page) | Legal - SecretGen` format, with the hub itself titled just `Legal - SecretGen`
+
+### Changed
+- `vercel.json`'s `/` rewrite now points at `/index.html` instead of `/0`; new rewrites added for `/legal` and each `/legal/<slug>` route, all ordered before the catch-all `/(.*) → /api/$1` rewrite so the numbered secret endpoints keep resolving exactly as before
+
 ## v1.2.1
 
 ### Changed

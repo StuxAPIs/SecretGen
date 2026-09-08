@@ -1,7 +1,7 @@
 # Contributing to SecretGen
 
 Thanks for your interest in contributing! SecretGen is a small Vercel serverless
-function — contributions are welcome.
+function plus a static landing/legal site — contributions are welcome.
 
 ## Local setup
 
@@ -10,7 +10,15 @@ npm install
 npm run develop
 ```
 
-This runs `vercel dev`, which serves `api/[length].js` locally.
+This runs `vercel dev`, which serves `api/[length].js` and the static
+pages (`index.html`, `legal.html`, `legal-*.html`) locally, using the same
+`vercel.json` routing as production. Or use the bundled dev server, which
+does the same `npm install` bootstrap for you:
+
+```bash
+./dev-server.sh      # Linux/macOS
+dev-server.bat       # Windows
+```
 
 ## Making a change
 
@@ -19,6 +27,20 @@ This runs `vercel dev`, which serves `api/[length].js` locally.
 3. Make sure `npm run develop` still serves requests correctly for a few
    lengths (e.g. `/32`, `/64`, `/128`) before submitting.
 4. Open a pull request with a clear description of what changed and why.
+
+## Static assets
+
+This is a static site with no build step or templating, so a few things have
+to be kept in sync by hand on any release that touches them:
+
+- **Cache-busting**: `/assets/style.css` is referenced with `?v=<version>` in
+  every HTML file (`index.html`, `legal.html`, `legal-*.html`). Bump it in all
+  of them alongside `VERSION.md` if you change `style.css`.
+- **Footer year/version**: `index.html`'s footer copyright year and version
+  string are hardcoded and need updating by hand alongside a release.
+- **Branding**: `logo.svg`/`icon.png` are hosted on the shared StuxAPIs media
+  CDN at [global.media.stuxapis.net/secretgen](https://global.media.stuxapis.net/secretgen),
+  not vendored in this repo — see the CDN if you need to change them.
 
 ## Releases
 

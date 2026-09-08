@@ -8,7 +8,6 @@ A simple API which will generate secrets. Built & Maintained by [StuxAPIs](https
 
 ## Usage
 
-- https://secretgen.stuxapis.net
 - https://secretgen.stuxapis.net/32
 - https://secretgen.stuxapis.net/64
 - https://secretgen.stuxapis.net/128
@@ -19,6 +18,11 @@ Or in the command line:
 curl https://secretgen.stuxapis.net/128
 ```
 
+## Website
+
+- Live: https://secretgen.stuxapis.net — a small landing page with usage examples; the secret-generation endpoints above are unaffected and always take priority over it
+- Legal: [/legal](https://secretgen.stuxapis.net/legal)
+
 ## Local development
 
 ```bash
@@ -26,11 +30,16 @@ npm install
 npm run develop
 ```
 
-`develop` runs `vercel dev`, serving the `api/[length].js` function locally.
+`develop` runs `vercel dev`, serving the `api/[length].js` function and the static pages locally. Or use the bundled dev server, which does the same setup for you:
+
+```bash
+./dev-server.sh      # Linux/macOS
+dev-server.bat       # Windows
+```
 
 ## Branding
 
-`logo.svg`/`icon.png` are hosted on the shared StuxAPIs media CDN at [global.media.stuxapis.net/secretgen](https://global.media.stuxapis.net/secretgen), not vendored in this repo. `/favicon.ico` redirects there too (see `vercel.json`), since this project has no HTML page of its own to declare a `<link rel="icon">`.
+`logo.svg`/`icon.png` are hosted on the shared StuxAPIs media CDN at [global.media.stuxapis.net/secretgen](https://global.media.stuxapis.net/secretgen), not vendored in this repo. `/favicon.ico` redirects there too (see `vercel.json`).
 
 ## Contributing
 

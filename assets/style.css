@@ -1,0 +1,130 @@
+/* SecretGen - self-contained stylesheet, no external framework */
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0 auto; height: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #fff;
+  background-color: #181818;
+  overflow-x: hidden;
+}
+
+a { color: #6366f1; text-decoration: none; }
+
+.fullscreen {
+  height: 100%;
+  background-color: #181818;
+  position: relative;
+}
+
+.center-object {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  vertical-align: middle;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.title { margin: 0; text-align: center; }
+
+.logo-img {
+  max-height: 90px;
+  max-width: 85vw;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+}
+
+.undertitle {
+  display: block;
+  flex-direction: column;
+  margin: 0;
+  text-align: center;
+  max-width: 100%;
+}
+
+.tagline { font-size: clamp(1.15rem, 4.5vw, 2.5rem); }
+
+.subtext { font-size: clamp(.85rem, 3vw, 1.7rem); }
+
+.accent-text { color: #6366f1; }
+
+.usage {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.usage code {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(.75rem, 2.2vw, .95rem);
+  background: rgba(255,255,255,.08);
+  border-radius: 6px;
+  padding: .5em .8em;
+  margin: .25em;
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  backface-visibility: hidden;
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  height: 38px;
+  line-height: 38px;
+  margin: .5em;
+  padding: 0 30px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:hover { filter: brightness(65%); transition: filter 200ms ease; }
+
+.accent-bg { background-color: #6366f1; }
+
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 1rem;
+  font-size: clamp(.7rem, 2.5vw, .85rem);
+  opacity: .7;
+  line-height: 1.6;
+}
+
+/* Legal pages - shared narrow-column content layout */
+
+body.legal-body { height: auto; max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; line-height: 1.6; }
+body.legal-body a { color: #6366f1; }
+body.legal-body h1 { margin-bottom: .25rem; }
+body.legal-body .legal-back { display: inline-block; margin-bottom: 1.5rem; opacity: .8; }
+
+.legal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.legal-card { display: block; padding: 1rem 1.25rem; border-radius: .5rem; border: 1px solid rgba(128,128,128,.3); text-decoration: none; color: inherit; }
+.legal-card:hover { border-color: #6366f1; }
+.legal-card-name { font-weight: 600; margin-bottom: .35rem; }
+.legal-card-desc { font-size: .85rem; opacity: .75; }
+
+footer.legal-footer { margin-top: 3rem; font-size: .85rem; opacity: .7; }
