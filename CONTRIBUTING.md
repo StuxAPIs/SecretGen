@@ -33,9 +33,9 @@ dev-server.bat       # Windows
 This is a static site with no build step or templating, so a few things have
 to be kept in sync by hand on any release that touches them:
 
-- **Cache-busting**: `/assets/style.css` is referenced with `?v=<version>` in
-  every HTML file (`index.html`, `legal.html`, `legal-*.html`). Bump it in all
-  of them alongside `VERSION.md` if you change `style.css`.
+- **Cache-busting**: `/assets/style.css` (every HTML file) and `/assets/app.js`
+  (`index.html` only) are each referenced with `?v=<version>`. Bump it
+  everywhere it appears alongside `VERSION.md` if you change either file.
 - **Footer year/version**: `index.html`'s footer copyright year and version
   string are hardcoded and need updating by hand alongside a release.
 - **Branding**: `logo.svg`/`icon.png` are hosted on the shared StuxAPIs media

@@ -5,6 +5,15 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.4.0
+
+### Added
+- `assets/app.js` — the landing page's "Generate a secret" button is now a real interactive generator: a length input (1-1024) plus a Generate button that fetches `/{length}` client-side and shows the result with a Copy button, instead of just linking straight to `/32`. Falls back to the old plain links (`/32`, `/64`, `/128`) inside a `<noscript>` block if JavaScript is disabled
+- The generator auto-runs once on page load, so there's always a secret shown by default
+
+### Changed
+- `assets/style.css` gained styles for the new generator widget (input, result row, copy button, error text) — cache-busted alongside `app.js` on every HTML file that loads it
+
 ## v1.3.0
 
 ### Added
