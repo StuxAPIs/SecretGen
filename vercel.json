@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/favicon.ico", "destination": "https://global.media.stuxapis.net/secretgen/icon.png", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/0" },
     { "source": "/(.*)", "destination": "/api/$1" }

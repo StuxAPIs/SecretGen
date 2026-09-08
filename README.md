@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" width="300" alt="SecretGen">
+  <img src="https://global.media.stuxapis.net/secretgen/logo.svg" width="300" alt="SecretGen">
 </p>
 
 # SecretGen
@@ -27,6 +27,10 @@ npm run develop
 ```
 
 `develop` runs `vercel dev`, serving the `api/[length].js` function locally.
+
+## Branding
+
+`logo.svg`/`icon.png` are hosted on the shared StuxAPIs media CDN at [global.media.stuxapis.net/secretgen](https://global.media.stuxapis.net/secretgen), not vendored in this repo. `/favicon.ico` redirects there too (see `vercel.json`), since this project has no HTML page of its own to declare a `<link rel="icon">`.
 
 ## Contributing
 

@@ -5,6 +5,16 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.2.0
+
+### Added
+- `assets/icon.png` — a square padlock icon cropped from `logo.svg`'s icon badge (512×512, transparent background), for use as this project's favicon. **Not yet uploaded to the CDN** — see note below.
+- `/favicon.ico` now redirects to the icon (see `vercel.json`), since this project has no HTML page of its own to declare a `<link rel="icon">`
+
+### Changed
+- `logo.svg` moved from being vendored locally in this repo to the shared CDN at `https://global.media.stuxapis.net/secretgen/logo.svg` — `README.md`'s header logo was updated accordingly
+- **Follow-up needed**: `assets/icon.png` is committed here only as a staging location — it needs to be uploaded to `https://global.media.stuxapis.net/secretgen/icon.png` (currently 403s), after which this local copy should be removed the same way `logo.svg` was
+
 ## v1.1.3
 
 ### Changed
