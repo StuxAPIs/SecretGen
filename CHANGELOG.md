@@ -5,6 +5,11 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.5.2
+
+### Fixed
+- `/changelog` still 500'd after v1.5.1 — the actual cause was `require('marked')`: `marked` v18 is ESM-only (no `require` export condition), which throws `ERR_REQUIRE_ESM` on Vercel's Node runtime (a local Node 24 test didn't catch it, since Node 24's newer synchronous `require(esm)` support masked the problem). `api/changelog.js` now loads `marked` via dynamic `import()` inside the async handler instead
+
 ## v1.5.1
 
 ### Fixed

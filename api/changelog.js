@@ -1,10 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-const { marked } = require('marked');
 
 const VERSION = fs.readFileSync(path.join(__dirname, '..', 'VERSION.md'), 'utf-8').trim();
 
 module.exports = async (req, res) => {
+  // marked v18+ is ESM-only (no "require" export condition), so it must be
+  // loaded via dynamic import - a plain require() throws ERR_REQUIRE_ESM on
+  // Vercel's Node runtime.
+  const { marked } = await import('marked');
+
   const raw = fs.readFileSync(path.join(__dirname, '..', 'CHANGELOG.md'), 'utf-8');
 
   // Drop the leading "# Changelog" title and intro prose - the page
