@@ -5,6 +5,11 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.5.1
+
+### Fixed
+- `/changelog` returned a 500 on Vercel — `api/changelog.js` read `VERSION.md`/`CHANGELOG.md` from the project root via a path built from an intermediate `ROOT` variable, which Vercel's build-time file tracing didn't pick up, so neither file was bundled into the deployed function. Inlined the `path.join(__dirname, '..', ...)` calls and added `vercel.json`'s `functions.includeFiles` for the two files as an explicit backstop
+
 ## v1.5.0
 
 ### Added

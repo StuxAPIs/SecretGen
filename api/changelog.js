@@ -2,11 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 
-const ROOT = path.join(__dirname, '..');
-const VERSION = fs.readFileSync(path.join(ROOT, 'VERSION.md'), 'utf-8').trim();
+const VERSION = fs.readFileSync(path.join(__dirname, '..', 'VERSION.md'), 'utf-8').trim();
 
 module.exports = async (req, res) => {
-  const raw = fs.readFileSync(path.join(ROOT, 'CHANGELOG.md'), 'utf-8');
+  const raw = fs.readFileSync(path.join(__dirname, '..', 'CHANGELOG.md'), 'utf-8');
 
   // Drop the leading "# Changelog" title and intro prose - the page
   // already has its own header, and the version/date headings are what
