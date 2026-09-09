@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About - SecretGen</title>
+<meta name="theme-color" content="#6366f1">
+<link rel="icon" type="image/png" href="https://global.media.stuxapis.net/secretgen/icon.png">
+<link href="/assets/style.css?v=1.5.0" type="text/css" rel="stylesheet">
+</head>
+<body class="legal-body">
+<a class="legal-back" href="/">&larr; Back to SecretGen</a>
+<h1>About</h1>
+<p>SecretGen is a free, public API that generates cryptographically random secrets &mdash; no auth, no rate limits, no nonsense.</p>
+
+<h3>Usage</h3>
+<ul>
+  <li><code>GET /32</code> &mdash; a 32-character secret</li>
+  <li><code>GET /64</code> &mdash; a 64-character secret</li>
+  <li><code>GET /128</code> &mdash; a 128-character secret</li>
+</ul>
+<p>Secrets are generated using Node's <code>crypto.randomBytes</code>.</p>
+
+<h3>Who's behind this</h3>
+<p>Built &amp; Maintained by <a href="https://stuxapis.net">StuxAPIs</a>, Hosted by <a href="https://stuxedo.com">Stuxedo</a>. The source is fully open on <a href="https://github.com/StuxAPIs/SecretGen">GitHub</a>.</p>
+
+<footer class="legal-footer">
+  <p><a href="/legal">Boring Legal Stuff</a> &middot; <a href="/changelog">Changelog</a></p>
+</footer>
+</body>
+</html>

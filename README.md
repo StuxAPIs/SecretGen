@@ -21,7 +21,9 @@ curl https://secretgen.stuxapis.net/128
 ## Website
 
 - Live: https://secretgen.stuxapis.net — a small landing page with usage examples; the secret-generation endpoints above are unaffected and always take priority over it
+- About: [/about](https://secretgen.stuxapis.net/about)
 - Legal: [/legal](https://secretgen.stuxapis.net/legal)
+- Changelog: [/changelog](https://secretgen.stuxapis.net/changelog) — renders [CHANGELOG.md](CHANGELOG.md) as HTML via the `api/changelog.js` serverless function
 
 ## Local development
 

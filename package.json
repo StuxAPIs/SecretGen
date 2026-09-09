@@ -13,6 +13,7 @@
   "author": "StuxDev",
   "license": "MIT",
   "dependencies": {
+    "marked": "^18.0.12",
     "micro": "^9.3.4"
   }
 }

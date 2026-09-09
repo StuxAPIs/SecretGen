@@ -5,6 +5,19 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.5.0
+
+### Added
+- `/changelog` — renders this file (minus the leading title/intro) as HTML via a new `api/changelog.js` serverless function (using the new `marked` dependency), styled to match the legal pages, matching the convention used by every other StuxAPIs project with a website. Homepage footer's version number is now linked to it
+- `/about` (`about.html`) — a new page describing what SecretGen is, its usage, and who runs it, linked from the homepage footer, `/changelog` footer, and every legal page's footer
+
+### Fixed
+- `/legal` (`legal.html`) had its top back-link reading "&larr; Back to Boring Legal Stuff" and pointing at itself — it now reads "&larr; Back to SecretGen" and links to `/`, like every other page's back link
+- The shared `.legal-body` narrow-column layout (legal pages, now also `/changelog` and `/about`) had no wrapping rule for long unbroken inline `code` spans or URLs, so they could overflow past the content column on mobile instead of breaking onto a new line — `body.legal-body` now sets `overflow-wrap: break-word`
+
+### Changed
+- The legal pages' shared footer contact address is now `legal@stuxapis.net` instead of the general `contact@stuxapis.net`; the Imprint and Disclaimer pages' own contact links, and `CONTRIBUTING.md`'s "Questions" section, now point at the general `hello@stuxapis.net` instead
+
 ## v1.4.0
 
 ### Added
