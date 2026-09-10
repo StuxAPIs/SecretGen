@@ -7,6 +7,7 @@
   var resultRow = document.getElementById('result-row');
   var resultText = document.getElementById('result-text');
   var copyBtn = document.getElementById('copy-btn');
+  var copyBtnLabel = document.getElementById('copy-btn-label');
   var errorEl = document.getElementById('gen-error');
 
   function showError(message) {
@@ -48,9 +49,9 @@
 
   copyBtn.addEventListener('click', function () {
     navigator.clipboard.writeText(resultText.textContent).then(function () {
-      var original = copyBtn.textContent;
-      copyBtn.textContent = 'Copied!';
-      setTimeout(function () { copyBtn.textContent = original; }, 1500);
+      var original = copyBtnLabel.textContent;
+      copyBtnLabel.textContent = 'Copied!';
+      setTimeout(function () { copyBtnLabel.textContent = original; }, 1500);
     });
   });
 

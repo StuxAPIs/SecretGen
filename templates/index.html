@@ -11,7 +11,9 @@
 <meta content="A simple API which will generate secrets." property="og:description" />
 <meta content="A simple API which will generate secrets." name="description" />
 <link rel="icon" type="image/png" href="https://global.media.stuxapis.net/secretgen/icon.png">
-<link href="/assets/style.css?v=1.5.0" type="text/css" rel="stylesheet">
+<link href="/assets/style.css?v=__VERSION__" type="text/css" rel="stylesheet">
+<link href="/assets/fontawesome/css/fontawesome.min.css?v=6.7.2" type="text/css" rel="stylesheet">
+<link href="/assets/fontawesome/css/solid.min.css?v=6.7.2" type="text/css" rel="stylesheet">
 </head>
 <body>
   <section class="fullscreen">
@@ -32,7 +34,7 @@
         </div>
         <div class="generator-result" id="result-row" hidden>
           <code id="result-text"></code>
-          <button id="copy-btn" class="btn-copy" type="button">Copy</button>
+          <button id="copy-btn" class="btn-copy" type="button"><i class="fa-solid fa-clipboard" aria-hidden="true"></i> <span id="copy-btn-label">Copy</span></button>
         </div>
         <p class="generator-error" id="gen-error" hidden></p>
         <noscript>
@@ -48,11 +50,11 @@
       </div>
     </div>
     <footer class="site-footer">
-      &copy; 2024-2026 StuxAPIs &mdash; <a href="/changelog" style="color:inherit;">v1.5.0</a>
+      &copy; 2024-2026 StuxAPIs &mdash; <a href="/changelog" style="color:inherit;">v__VERSION__</a>
       &middot; <a href="/legal" style="color:inherit;">Boring Legal Stuff</a>
       &middot; <a href="/about" style="color:inherit;">About</a>
     </footer>
   </section>
-  <script src="/assets/app.js?v=1.5.0"></script>
+  <script src="/assets/app.js?v=__VERSION__"></script>
 </body>
 </html>

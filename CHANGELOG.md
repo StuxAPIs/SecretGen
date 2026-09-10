@@ -5,6 +5,17 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.6.0
+
+### Fixed
+- Every static page's `?v=` cache-buster (and the homepage footer's displayed version) was a hand-typed literal that had drifted three releases stale (`?v=1.5.0`, while `VERSION.md` was already at `1.5.3`) since nothing forced it to be updated on release. `index.html`, `about.html`, `legal.html`, and the six `legal-*.html` pages are now templates rendered by matching `api/*.js` functions (mirroring how `/changelog` already worked), substituting the current `VERSION.md` value into every `?v=` and the footer's version text, so it can never go stale again
+
+### Added
+- Self-hosted Font Awesome 6.7.2 icons (`assets/fontawesome/`) — a GitHub brand icon on the `/about` page's GitHub link, and a clipboard icon on the homepage's "Copy" button (`app.js` now toggles a `#copy-btn-label` span instead of the whole button's `textContent`, so the icon survives the "Copied!" state swap)
+
+### Changed
+- `index.html`/`about.html`/`legal*.html` moved from the project root into `templates/`, matching the pattern `api/changelog.js` already used for its own template; `vercel.json`'s rewrites now point `/`, `/about`, `/legal`, and the six `/legal/*` routes at the corresponding `api/*.js` function instead of a static `.html` file
+
 ## v1.5.3
 
 ### Changed

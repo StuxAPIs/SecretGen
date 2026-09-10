@@ -1,23 +1,23 @@
 {
   "functions": {
-    "api/changelog.js": {
-      "includeFiles": "{VERSION.md,CHANGELOG.md}"
+    "api/*.js": {
+      "includeFiles": "{VERSION.md,CHANGELOG.md,templates/**}"
     }
   },
   "redirects": [
     { "source": "/favicon.ico", "destination": "https://global.media.stuxapis.net/secretgen/icon.png", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/about", "destination": "/about.html" },
+    { "source": "/", "destination": "/api/index" },
+    { "source": "/about", "destination": "/api/about" },
     { "source": "/changelog", "destination": "/api/changelog" },
-    { "source": "/legal", "destination": "/legal.html" },
-    { "source": "/legal/privacy", "destination": "/legal-privacy.html" },
-    { "source": "/legal/terms", "destination": "/legal-terms.html" },
-    { "source": "/legal/cookies", "destination": "/legal-cookies.html" },
-    { "source": "/legal/imprint", "destination": "/legal-imprint.html" },
-    { "source": "/legal/disclaimer", "destination": "/legal-disclaimer.html" },
-    { "source": "/legal/opt-out", "destination": "/legal-opt-out.html" },
+    { "source": "/legal", "destination": "/api/legal" },
+    { "source": "/legal/privacy", "destination": "/api/legal-privacy" },
+    { "source": "/legal/terms", "destination": "/api/legal-terms" },
+    { "source": "/legal/cookies", "destination": "/api/legal-cookies" },
+    { "source": "/legal/imprint", "destination": "/api/legal-imprint" },
+    { "source": "/legal/disclaimer", "destination": "/api/legal-disclaimer" },
+    { "source": "/legal/opt-out", "destination": "/api/legal-opt-out" },
     { "source": "/(.*)", "destination": "/api/$1" }
   ]
 }
