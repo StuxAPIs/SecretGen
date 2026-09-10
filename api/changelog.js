@@ -3,6 +3,24 @@ const path = require('path');
 
 const VERSION = fs.readFileSync(path.join(__dirname, '..', 'VERSION.md'), 'utf-8').trim();
 
+const CHANGELOG_LABELS = {
+  Added: 'added',
+  Changed: 'changed',
+  Fixed: 'fixed',
+  Removed: 'removed',
+  Deprecated: 'deprecated',
+  Security: 'security',
+};
+
+function styliseChangelog(html) {
+  html = html.replace(/<h3>(\w+)<\/h3>/g, (match, word) => {
+    const slug = CHANGELOG_LABELS[word];
+    if (!slug) return match;
+    return `<p class="cl-label cl-label-${slug}">${word}</p>`;
+  });
+  return html.replace(/<ul>/g, '<ul class="cl-list">');
+}
+
 module.exports = async (req, res) => {
   // marked v18+ is ESM-only (no "require" export condition), so it must be
   // loaded via dynamic import - a plain require() throws ERR_REQUIRE_ESM on
@@ -15,7 +33,7 @@ module.exports = async (req, res) => {
   // already has its own header, and the version/date headings are what
   // actually matter here.
   const body = raw.replace(/^# Changelog\n[\s\S]*?(?=\n## )/, '');
-  const changelogHtml = marked.parse(body);
+  const changelogHtml = styliseChangelog(marked.parse(body));
 
   const html = `<!doctype html>
 <html lang="en">
