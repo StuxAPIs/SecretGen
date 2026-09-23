@@ -5,6 +5,11 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.6.5
+
+### Changed
+- Footer copyright year is now computed at request time instead of hardcoded: shows just `2024` (SecretGen's real first-commit year) until the current year moves past it, then a `2024-<current year>` range — so it never needs a manual bump again.
+
 ## v1.6.4
 
 ### Added
