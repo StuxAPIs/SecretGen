@@ -18,6 +18,7 @@
     { "source": "/legal/imprint", "destination": "/api/legal-imprint" },
     { "source": "/legal/disclaimer", "destination": "/api/legal-disclaimer" },
     { "source": "/legal/opt-out", "destination": "/api/legal-opt-out" },
+    { "source": "/:seg1/:seg2/(.*)", "destination": "/api/404" },
     { "source": "/(.*)", "destination": "/api/$1" }
   ]
 }

@@ -5,6 +5,11 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.6.6
+
+### Added
+- A custom `404.html` (matching the `about`/`legal` page style), served via a new `api/404.js` function for any unmatched multi-segment path, instead of Vercel's default error page.
+
 ## v1.6.5
 
 ### Changed
