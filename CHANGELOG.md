@@ -5,6 +5,13 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.6.7
+
+### Changed
+- Changelog page badges now use the fixed shared palette — Added green, Changed blue, Fixed orange, Removed red, Security purple, Deprecated grey — as tinted pills
+- `###` sections within each release are sorted into that same fixed order (Added, Changed, Fixed, Removed, Security, Deprecated) at render time, whatever order `CHANGELOG.md` lists them in; unknown types go last
+- CHANGELOG sections reordered to Added, Changed, Fixed, Removed, Security, Deprecated
+
 ## v1.6.6
 
 ### Added
@@ -30,11 +37,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## v1.6.2
 
+### Added
+- "A StuxAPIs Service" credit (linking to `https://services.stuxapis.net`) in the site footer.
+
 ### Fixed
 - The Imprint page said SecretGen is "operated by Stux.Group, as part of the StuxAPIs collection" — the actual chain is SecretGen → StuxAPIs → Stux Group Ltd. Corrected to name StuxAPIs as the direct operator, with Stux Group Ltd's full registration details.
 - `LICENSE` and `README.md`'s copyright line named `Stux.Group` (a brand, not a legal entity) — corrected to `Stux Group Ltd`.
-### Added
-- "A StuxAPIs Service" credit (linking to `https://services.stuxapis.net`) in the site footer.
 
 ## v1.6.1
 
@@ -43,14 +51,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## v1.6.0
 
-### Fixed
-- Every static page's `?v=` cache-buster (and the homepage footer's displayed version) was a hand-typed literal that had drifted three releases stale (`?v=1.5.0`, while `VERSION.md` was already at `1.5.3`) since nothing forced it to be updated on release. `index.html`, `about.html`, `legal.html`, and the six `legal-*.html` pages are now templates rendered by matching `api/*.js` functions (mirroring how `/changelog` already worked), substituting the current `VERSION.md` value into every `?v=` and the footer's version text, so it can never go stale again
-
 ### Added
 - Self-hosted Font Awesome 6.7.2 icons (`assets/fontawesome/`) — a GitHub brand icon on the `/about` page's GitHub link, and a clipboard icon on the homepage's "Copy" button (`app.js` now toggles a `#copy-btn-label` span instead of the whole button's `textContent`, so the icon survives the "Copied!" state swap)
 
 ### Changed
 - `index.html`/`about.html`/`legal*.html` moved from the project root into `templates/`, matching the pattern `api/changelog.js` already used for its own template; `vercel.json`'s rewrites now point `/`, `/about`, `/legal`, and the six `/legal/*` routes at the corresponding `api/*.js` function instead of a static `.html` file
+
+### Fixed
+- Every static page's `?v=` cache-buster (and the homepage footer's displayed version) was a hand-typed literal that had drifted three releases stale (`?v=1.5.0`, while `VERSION.md` was already at `1.5.3`) since nothing forced it to be updated on release. `index.html`, `about.html`, `legal.html`, and the six `legal-*.html` pages are now templates rendered by matching `api/*.js` functions (mirroring how `/changelog` already worked), substituting the current `VERSION.md` value into every `?v=` and the footer's version text, so it can never go stale again
 
 ## v1.5.3
 
@@ -73,12 +81,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `/changelog` — renders this file (minus the leading title/intro) as HTML via a new `api/changelog.js` serverless function (using the new `marked` dependency), styled to match the legal pages, matching the convention used by every other StuxAPIs project with a website. Homepage footer's version number is now linked to it
 - `/about` (`about.html`) — a new page describing what SecretGen is, its usage, and who runs it, linked from the homepage footer, `/changelog` footer, and every legal page's footer
 
+### Changed
+- The legal pages' shared footer contact address is now `legal@stuxapis.net` instead of the general `contact@stuxapis.net`; the Imprint and Disclaimer pages' own contact links, and `CONTRIBUTING.md`'s "Questions" section, now point at the general `hello@stuxapis.net` instead
+
 ### Fixed
 - `/legal` (`legal.html`) had its top back-link reading "&larr; Back to Boring Legal Stuff" and pointing at itself — it now reads "&larr; Back to SecretGen" and links to `/`, like every other page's back link
 - The shared `.legal-body` narrow-column layout (legal pages, now also `/changelog` and `/about`) had no wrapping rule for long unbroken inline `code` spans or URLs, so they could overflow past the content column on mobile instead of breaking onto a new line — `body.legal-body` now sets `overflow-wrap: break-word`
-
-### Changed
-- The legal pages' shared footer contact address is now `legal@stuxapis.net` instead of the general `contact@stuxapis.net`; the Imprint and Disclaimer pages' own contact links, and `CONTRIBUTING.md`'s "Questions" section, now point at the general `hello@stuxapis.net` instead
 
 ## v1.4.0
 

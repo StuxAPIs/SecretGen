@@ -8,9 +8,32 @@ const CHANGELOG_LABELS = {
   Changed: 'changed',
   Fixed: 'fixed',
   Removed: 'removed',
-  Deprecated: 'deprecated',
   Security: 'security',
+  Deprecated: 'deprecated',
 };
+
+// Fixed display order for changelog section types - sections are sorted into
+// this order at render time rather than trusting the markdown's order.
+// Unknown section types go last, keeping their original relative order.
+const CHANGELOG_ORDER = ['Added', 'Changed', 'Fixed', 'Removed', 'Security', 'Deprecated'];
+
+function sortChangelogSections(md) {
+  const rank = (section) => {
+    const m = section.match(/^###\s+(\w+)/);
+    const i = m ? CHANGELOG_ORDER.indexOf(m[1]) : -1;
+    return i === -1 ? CHANGELOG_ORDER.length : i;
+  };
+  return md.split(/^(?=## )/m).map((release) => {
+    const chunks = release.split(/^(?=### )/m);
+    const head = chunks.shift();
+    if (!chunks.length) return release;
+    const sections = chunks
+      .map((s, i) => ({ s: s.trimEnd(), r: rank(s), i }))
+      .sort((a, b) => a.r - b.r || a.i - b.i)
+      .map((x) => x.s);
+    return head + sections.join('\n\n') + '\n\n';
+  }).join('');
+}
 
 function styliseChangelog(html) {
   html = html.replace(/<h3>(\w+)<\/h3>/g, (match, word) => {
@@ -33,7 +56,7 @@ module.exports = async (req, res) => {
   // already has its own header, and the version/date headings are what
   // actually matter here.
   const body = raw.replace(/^# Changelog\n[\s\S]*?(?=\n## )/, '');
-  const changelogHtml = styliseChangelog(marked.parse(body));
+  const changelogHtml = styliseChangelog(marked.parse(sortChangelogSections(body)));
 
   const html = `<!doctype html>
 <html lang="en">
