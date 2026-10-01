@@ -5,6 +5,12 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.6.9
+
+### Changed
+
+- The footer's copyright year is worked out on every request (not once per function start) and uses an en dash: the start year alone in the first year, then START–CURRENT
+
 ## v1.6.8
 
 ### Changed
