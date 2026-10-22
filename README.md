@@ -12,6 +12,8 @@ A simple API which will generate secrets. Built & Maintained by [StuxAPIs](https
 - https://secretgen.stuxapis.net/64
 - https://secretgen.stuxapis.net/128
 
+Any length from 1 to 1,000,000 works. Negative lengths return `400`, longer ones `413`, and requests other than `GET` return `405`.
+
 Or in the command line:
 
 ```bash

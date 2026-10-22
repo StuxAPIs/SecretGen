@@ -5,6 +5,20 @@ All notable changes to SecretGen are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.7.0
+
+### Added
+
+- Branded error pages from a shared `templates/error.html`: 400 for a negative length, 405 for anything other than `GET`/`HEAD`, 413 for a length over 1,000,000, and 500 if generating a secret fails. Browsers get the styled page; `curl` and scripts get a one-line plain-text error
+
+### Changed
+
+- Paths that aren't a number (like `/abc`) now show the 404 page instead of redirecting to `/32`; `/0` still redirects
+
+### Fixed
+
+- Negative or huge lengths (like `/-5` or `/999999999999`) no longer crash the function with Vercel's `FUNCTION_INVOCATION_FAILED` page
+
 ## v1.6.10
 
 ### Changed
