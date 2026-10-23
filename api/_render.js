@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { faviconTags, discordEmbedFor } = require('./_head');
 
 const VERSION = fs.readFileSync(path.join(__dirname, '..', 'VERSION.md'), 'utf-8').trim();
 
@@ -35,6 +36,7 @@ function renderPage(res, name, statusCode = 200, vars = {}) {
   for (const [key, value] of Object.entries(vars)) {
     html = html.split(`__${key}__`).join(escapeHtml(value));
   }
+  html = html.replace(/__ICONS__/g, faviconTags()).replace(/__DISCORD__/g, () => discordEmbedFor(name));
   html = html.replace(/__VERSION__/g, VERSION).replace(/__COPYRIGHT_YEAR__/g, copyrightYears());
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');

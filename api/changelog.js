@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { faviconTags, discordEmbedFor } = require('./_head');
 
 const VERSION = fs.readFileSync(path.join(__dirname, '..', 'VERSION.md'), 'utf-8').trim();
 
@@ -65,7 +66,8 @@ module.exports = async (req, res) => {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Changelog - SecretGen</title>
 <meta name="theme-color" content="#6366f1">
-<link rel="icon" type="image/png" href="https://global.media.stuxapis.net/secretgen/icon.png">
+${faviconTags()}
+${discordEmbedFor('changelog')}
 <link href="/assets/style.css?v=${VERSION}" type="text/css" rel="stylesheet">
 </head>
 <body class="legal-body">

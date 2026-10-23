@@ -1,10 +1,11 @@
 {
   "name": "secret-generator",
-  "version": "1.0.0",
+  "version": "26.10.2300",
   "description": "",
   "main": "index.js",
   "scripts": {
     "develop": "vercel dev",
+    "test": "node --test tests/site.test.js",
     "start": "micro"
   },
   "engines": {

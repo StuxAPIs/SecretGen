@@ -30,26 +30,27 @@ dev-server.bat       # Windows
 
 ## Static assets
 
-This is a static site with no build step or templating, so a few things have
-to be kept in sync by hand on any release that touches them:
+Pages are templates in `templates/`, rendered by `api/_render.js`, which fills in
+the version (also the `?v=` cache-buster), the footer year and the shared `<head>`
+tags (icons and the Discord embed, from `api/_head.js`). Every template with a
+`<head>` needs the `__ICONS__` placeholder; pages other than 404 and error pages
+also take `__DISCORD__`. Run `npm test` before a release.
 
-- **Cache-busting**: `/assets/style.css` (every HTML file) and `/assets/app.js`
-  (`index.html` only) are each referenced with `?v=<version>`. Bump it
-  everywhere it appears alongside `VERSION.md` if you change either file.
-- **Footer year/version**: `index.html`'s footer copyright year and version
-  string are hardcoded and need updating by hand alongside a release.
+- **Icons**: `favicon.ico`, `apple-touch-icon.png`, `site.webmanifest` and `assets/icons/`
+  are generated from the square icon; regenerate them if the icon changes.
 - **Branding**: `logo.svg`/`icon.png` are hosted on the shared StuxAPIs media
   CDN at [global.media.stuxapis.net/secretgen](https://global.media.stuxapis.net/secretgen),
   not vendored in this repo — see the CDN if you need to change them.
 
-## Releases
-
-Releases follow [Semantic Versioning](https://semver.org/):
-
-1. Update [CHANGELOG.md](CHANGELOG.md) with what changed.
-2. Bump [VERSION.md](VERSION.md).
-3. Run `commit.sh` (or `commit.bat` on Windows) to commit and tag the release.
-
 ## Questions
 
 Reach out at [hello@stuxapis.net](mailto:hello@stuxapis.net).
+
+## Versioning
+
+This project uses [Date Versioning](https://datevers.ing). To release:
+
+1. Add a `## vYY.MM.DD` entry at the top of `CHANGELOG.md`, with its sections in this order: Added, Changed, Fixed, Removed, Security, Deprecated.
+2. Set `VERSION.md` to the same bare version (no `v`): today's **UTC** date as `YY.MM.DD`, or `YY.MM.DD-1`, `-2`… for later releases the same UTC day. Never a future date. Use UTC, not local time: just after midnight in the UK it is still the previous day in UTC.
+3. Run `bash tests/version.sh`.
+4. Run `./commit.sh` (or `commit.bat` on Windows). It checks the version, commits and tags `vYY.MM.DD`, and never pushes.
