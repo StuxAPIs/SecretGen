@@ -1,0 +1,24 @@
+name: CI
+
+# Runs the checks on pushes to main and test, and on every pull request (a pull request from test into
+# main needs this to pass before it is merged).
+on:
+  push:
+    branches: [main, test]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: npm ci
+      - run: npm test
+      - run: bash tests/version.sh

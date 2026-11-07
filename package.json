@@ -1,6 +1,6 @@
 {
   "name": "secret-generator",
-  "version": "26.10.2300",
+  "version": "26.11.0601",
   "description": "",
   "main": "index.js",
   "scripts": {
